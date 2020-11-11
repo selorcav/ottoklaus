@@ -40,7 +40,19 @@
         </div>
       </v-card>
     </v-form>
-    <p>{{error}}</p>
+    <v-snackbar v-model="snackbar" color="primary">
+      {{ error }}
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="white"
+          text
+          v-bind="attrs"
+          @click="snackbar = false"
+        >
+          Cerrar
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-container>
 </template>
 
@@ -56,10 +68,11 @@ export default {
       show1: false,
       email: '',
       pass: '',
+      snackbar: false,
     };
   },
   methods:{
-    ...mapActions(["loginUser"])
+    ...mapActions(["loginUser", 'showing']),
   }, 
   computed:{
     ...mapState(["error"])

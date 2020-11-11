@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar
       app
-      color="purple darken-2"
+      color="light-blue accent-4"
       dense
       dark
     >
@@ -12,16 +12,16 @@
       <v-spacer></v-spacer>
 
       <router-link to="/">
-        <v-btn elevation="0" color="purple darken-3" class="mx-2">
+        <v-btn elevation="0" color="white" outlined class="mx-2">
           <v-icon>mdi-account</v-icon>
           Login
         </v-btn>
       </router-link>
 
       <router-link to="/Register">
-        <v-btn elevation="0" color="purple darken-3" class="mx-2">
-          <v-icon>mdi-pencil</v-icon>
-          Registro
+        <v-btn elevation="0" color="white" class="mx-2">
+          <v-icon color="blue">mdi-pencil</v-icon>
+          <span class="blue--text">Registro</span> 
         </v-btn>
       </router-link>
 

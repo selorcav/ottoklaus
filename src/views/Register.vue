@@ -13,7 +13,7 @@
         > 
         </v-img>
         <div class="px-10 py-5">
-          <h1 class="purple--text darken-3 text-center">Registro</h1>
+          <h1 class="blue--text text-center">Registro</h1>
           <v-text-field v-model="email" label="E-mail" required></v-text-field>
           <v-text-field
             v-model="pass1"
@@ -42,10 +42,8 @@
         </div>
       </v-card>
     </v-form>
-    <p>
-      {{ error }}
-    </p>
   </v-container>
+  
 </template>
 
 <script>
