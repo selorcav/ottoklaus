@@ -1,6 +1,8 @@
 <template>
   <v-container class="mt-16">
-    <ToysForm :showForm="showForm" @close-form="showForm = false" @save-form="showForm = false"/>
+    <ToysForm :showForm="showForm" 
+    @close-form="showForm = false" 
+    @save-form="showForm = false"/>
     <v-card class="pa-16">
       <h2 class="blue--text mb-10">
         <v-avatar>
@@ -10,12 +12,20 @@
           /> </v-avatar
         > Bienvenido {{ user.email }}
       </h2>
+
       <v-row>
         <v-col class="d-flex justify-end" cols="12">
           <v-hover v-slot="{ hover }">
-            <v-btn color="blue" dark large :elevation="hover ? 4 : 0" @click.prevent="showForm = true">Agregar juguete</v-btn>
+            <v-btn color="blue" 
+            dark 
+            large 
+            :elevation="hover ? 4 : 0" 
+            @click.prevent="showForm = true">
+              Agregar juguete
+            </v-btn>
           </v-hover>
         </v-col>
+
         <v-col v-for="toy in toys" :key="toy.id" md="4" sm="6">
           <v-card class="mx-auto">
             <v-img
@@ -45,6 +55,7 @@
           </v-card>
         </v-col>
       </v-row>
+
     </v-card>
   </v-container>
 </template>
@@ -66,7 +77,7 @@ export default {
   methods: {
     ...mapActions(["getToys", "deleteToy", "editToy"]),
     removeToy(toyId) {
-      if (confirm("¿Desea eliminar el producto seleccionado?")) {
+      if (confirm("¿Seguro?")) {
         this.deleteToy(toyId);
       }
     },

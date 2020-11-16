@@ -7,18 +7,38 @@
         </v-card-title>
         <v-card-text>
           <v-container>
-            <v-text-field label="Nombre" v-model="toy.data.name" required></v-text-field>
-            <v-text-field label="Precio" v-model="toy.data.price" prefix="$" required></v-text-field>
-            <v-text-field label="Stock" v-model="toy.data.stock" required></v-text-field>
-            <v-text-field label="Código" v-model="toy.data.code" required></v-text-field>
+            <v-text-field
+              label="Nombre"
+              v-model="toy.data.name"
+              required
+            ></v-text-field>
+            <v-text-field
+              label="Precio"
+              v-model="toy.data.price"
+              prefix="$"
+              required
+            ></v-text-field>
+            <v-text-field
+              label="Stock"
+              v-model="toy.data.stock"
+              required
+            ></v-text-field>
+            <v-text-field
+              label="Código"
+              v-model="toy.data.code"
+              required
+            ></v-text-field>
           </v-container>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue" text @click="$emit('close-form')">
-            Cerrar
-          </v-btn>
-          <v-btn color="blue" text @click.prevent="submitForm"  v-text="toy.id ? 'Actualizar' : 'Crear'">
+          <v-btn color="blue" text @click="$emit('close-form')"> Cerrar </v-btn>
+          <v-btn
+            color="blue"
+            text
+            @click.prevent="submitForm"
+            v-text="toy.id ? 'Actualizar' : 'Crear'"
+          >
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -27,7 +47,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapState } from "vuex";
 export default {
   props: {
     showForm: {
@@ -43,15 +63,15 @@ export default {
           name: null,
           code: null,
           price: 0,
-          stock: 0
-        }
-      }
-    }
+          stock: 0,
+        },
+      },
+    };
   },
   methods: {
-    ...mapActions(['createToy', 'updateToy']),
+    ...mapActions(["createToy", "updateToy"]),
     submitForm() {
-      if (!confirm("Confirma para continuar")) {
+      if (!confirm("Confirmar para continuar")) {
         return;
       }
       if (this.toy.id) {

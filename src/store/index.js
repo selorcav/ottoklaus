@@ -66,23 +66,23 @@ export default new Vuex.Store({
     },
     getToys({ commit }) {
       axios.get('https://us-central1-ottoklauss-5927c.cloudfunctions.net/api/toys')
-        .then(res => commit("GET_TOYS", res.data))
+      .then(response => commit("GET_TOYS", response.data))
     },
     deleteToy({ dispatch }, toyId) {
-      axios.delete(`https://us-central1-ottoklauss-5927c.cloudfunctions.net/api/toys${toyId}`)
-        .then(() => dispatch('getToys'))
+      axios.delete(`https://us-central1-ottoklauss-5927c.cloudfunctions.net/api/toys/${toyId}`)
+      .then(() => dispatch('getToys'))
     },
     createToy({ dispatch }, toy) {
       axios.post('https://us-central1-ottoklauss-5927c.cloudfunctions.net/api/toys', toy)
-        .then(() => dispatch("getToys")
-        )
+      .then(() => dispatch("getToys")
+      )
     },
     editToy({ commit }, toy) {
       commit("SET_CURRENT_TOY", toy)
     },
     updateToy({ dispatch }, toy) {
       axios.put(`https://us-central1-ottoklauss-5927c.cloudfunctions.net/api/toys/${toy.id}`, toy.data)
-        .then(() => dispatch('getToys'))
+      .then(() => dispatch('getToys'))
     }
   },
   getters: {
