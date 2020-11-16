@@ -56,6 +56,5 @@ export default {
   .main-bg
     background: url('./assets/img/main-bg.jpg') !important
     background-position: center
-    background-size: cover !important
 
 </style>
